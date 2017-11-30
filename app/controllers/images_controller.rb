@@ -9,8 +9,14 @@ class ImagesController < ActionController::Base
   end
 
   def create
-
-    redirectTo "index"
+    @image = Image.new(params[:img_file])
+    if @image.save
+       flash[:notice] = "Image is saved!!"
+       redirect_to "/"
+     else
+       flash[:alert] = "There was a problem adding image."
+       redirect_to '/new'
+     end
   end
 
   def destroy
