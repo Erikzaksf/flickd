@@ -1,0 +1,7 @@
+<h1>Image List</h1>
+<% if @images.length > 1 %>
+  <%= %>
+<% else %>
+  <p>sorry, there are no images yet</p>
+<% end %>
+<%= link_to "Add an image", new_image_path %>
